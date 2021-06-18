@@ -1,0 +1,33 @@
+author: ShineyDev
+name: sync-readme-action
+description: A GitHub Action for synchronizing your README.* file with a readme.yml file.
+
+branding:
+  color: gray-dark
+  icon: book
+
+inputs:
+  destination:
+    description: A path relative to github.workspace to the destination file. Defaults to 'README.rst'.
+    required: false
+    default: README.rst
+  source:
+    description: A path relative to github.workspace to the source file. Defaults to '.github/readme.yml'.
+    required: false
+    default: .github/readme.yml
+  verbosity:
+    description: A level of verbosity for output in the range [0-4]. Defaults to 3.
+    required: false
+    default: "3"
+
+runs:
+  using: composite
+
+  steps:
+  - name: Install
+    shell: bash
+    run: python -m pip install -r ${{ github.action_path }}/requirements.txt
+
+  - name: Run
+    shell: bash
+    run: python ${{ github.action_path }}/script.py --destination "${{ github.workspace }}/${{ inputs.destination }}" --source "${{ github.workspace }}/${{ inputs.source }}" --verbosity ${{ inputs.verbosity }}
