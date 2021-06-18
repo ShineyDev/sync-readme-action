@@ -29,11 +29,13 @@ Use
 
 If you wish to use this GitHub Action as-is, place the following steps in a workflow job.
 
+
 .. note::
 
     You should install a version of Python 3.6+ before running the GitHub Action, however this step is not required. See
     `Pre-installed Software <https://docs.github.com/en/actions/using-github-hosted-runners/about-github-hosted-runners#preinstalled-software>`_ for
     more information.
+
 
 .. code:: yml
 
@@ -49,10 +51,12 @@ If you wish to use this GitHub Action as-is, place the following steps in a work
         git commit -m "update readme"
         git push
 
+
 Once you've set up your workflow, create a `readme.yml` file in `.github/data/`. This source path can be changed via a GitHub Action input.
 
 
 If you wish to use the script directly, run the following.
+
 
 .. code:: sh
 
